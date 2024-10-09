@@ -9,3 +9,14 @@ plt.savefig('coastlines.pdf')
 plt.savefig('coastlines.png')
 
 plt.show()
+
+from matplotlib.patches import Circle
+circle = Circle((52.00667, 4.35556), radius=5, edgecolor='blue', facecolor='none', transform=ccrs.PlateCarree())
+
+# Add the circle to the map
+ax.add_patch(circle)
+
+# Add coastlines for reference
+ax.coastlines()
+
+plt.show()
