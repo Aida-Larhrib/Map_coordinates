@@ -1,24 +1,28 @@
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 from cartopy.geodesic import Geodesic
+import pandas as pd
+import matplotlib.patches as mpatches
+import cartopy.feature as cfeature
 
-
+#draw out the map and chose the variable that I want to be in there:
 ax = plt.axes(projection=ccrs.PlateCarree())
 ax.coastlines()
+ax.gridlines()
+ax.add_feature(cfeature.LAND)
+ax.add_feature(cfeature.OCEAN)
 
-# Save the plot by calling plt.savefig() BEFORE plt.show()
+#giving values to the lat and the lon: 
+longitude = 52.00667
+latitude = 4.3556
+radius = 0.15
+
+#Plotting the circle
+ax.add_patch(mpatches.Circle(xy=[longitude, latitude], radius=r, color='red', alpha=0.3, transform=ccrs.PlateCarree(), zorder=30))
+ax.set_xlim([-latitude-5, latitude+5])
+ax.set_ylim([-longitude-5, longitude+5])
+
+#plt. save and show the figure
 plt.savefig('coastlines.pdf')
 plt.savefig('coastlines.png')
-
-plt.show()
-#changing the coordinate system? 
-ccrs.Globe(datum=None, ellipse='WGS84', semimajor_axis=None, semiminor_axis=None, flattening=None, inverse_flattening=None, towgs84=None, nadgrids=None)
-Geodesic.circle(lon=52.00667, lat=4.35556, radius=2500.)
-
-# Add the circle to the map
-ax.add_patch()
-
-# Add coastlines for reference
-ax.coastlines()
-
 plt.show()
