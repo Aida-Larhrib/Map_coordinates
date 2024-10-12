@@ -17,8 +17,8 @@ plt.savefig('coastlines.pdf')
 plt.savefig('coastlines.png')
 
 #giving values to the lat and the lon as well as the radius: 
-longitude = 4.3556
-latitude = 52.00667
+longitude = -7.603869
+latitude = 33.589886
 r = 0.15
 
 #Plotting the circle
