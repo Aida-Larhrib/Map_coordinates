@@ -1,1 +1,45 @@
+This is the documentation document related to the MAP_COORDINATES project by student 5854261. This project's goal if to let the user put in coordinates and get in return the area in question circled on a map. 
 
+#I started by generating the map and chosing the features I wanted to see on it: 
+"""
+    The map ax:
+        ax = plt.axes(projection=ccrs.PlateCarree()) #here I am telling matplotlib to draw a map with a certain projection type which in this case is the PlateCarre projection. 
+        ax.coastlines() #this adds coastlines to the axes.
+        ax.add_feature(cfeature.NaturalEarthFeature('physical', 'land', '50m', edgecolor='black', facecolor=cfeature.COLORS['land']))
+        ax.add_feature(cfeature.NaturalEarthFeature('cultural', 'admin_0_countries', '50m', edgecolor='black', facecolor='none'))
+        ax.add_feature(cfeature.NaturalEarthFeature('physical', 'lakes', '50m', edgecolor='none', facecolor=cfeature.COLORS['water']), alpha=0.5)
+        ax.add_feature(cfeature.NaturalEarthFeature('physical', 'rivers_lake_centerlines', '50m', edgecolor=cfeature.COLORS['water'], facecolor='none'))
+        ax.add_feature(cfeature.NaturalEarthFeature('cultural', 'admin_1_states_provinces_lines', '50m', edgecolor='gray', facecolor='none'))
+        #using cfeature from cartopy.feature, I used the add_feature function to parameter a few features of the map. 
+
+        plt.savefig('coastlines.pdf')
+        plt.savefig('coastlines.png') #saving the plots
+"""
+#Possible improvements for this:
+"""
+        Add more features to the map or change the projection.
+"""
+
+#Creating the varibles latitude, longitude and radius of the circle: 
+"""
+        longitude = -7.603869 
+        latitude = 33.589886
+        r = 0.15 
+"""
+
+#Plotting the circle depending on the coordinates: 
+""
+    The add_patch function: 
+        ax.add_patch(mpatches.Circle(xy=[longitude, latitude], radius=r, color='red', alpha=0.3, transform=ccrs.PlateCarree(), zorder=30)) #This function generates the circle around the asked coordinates, its variables are: The variables of this function are longitude, latitude, r (radius), and the optional properties like color, alpha, transform, and zorder and  alpha controls the transparency of the patch, where 0 is fully transparent and 1 is fully opaque. The zorder determines the drawing order of the patch relative to other elements, with higher values being drawn on top of lower ones.
+"""
+
+#Zooming the map on into the area of interest:
+"""
+    Before this, in order to find the circle, I had to manually zoom into the map but now it does it on its own
+        zoom_radius = 5  # degrees to zoom in
+        ax.set_extent([longitude - zoom_radius, longitude + zoom_radius, latitude - zoom_radius, latitude + zoom_radius], crs=ccrs.PlateCarree()) #This function modifies the extent of the output image, the variables are the western boundary: longitude - zoom_radius, the eastern boundary: longitude + zoom_radius, the southern boundary: latitude - zoom_radius, the northern boundary: latitude + zoom_radius and the projection type. 
+"""
+
+#Showing the image:
+""" 
+        plt.show() #Shows the image
