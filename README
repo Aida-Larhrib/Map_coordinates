@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is the documentation document related to the MAP_COORDINATES project by student 5854261. This project's goal if to let the user put in coordinates and get in return the area in question circled on a map. 
 
 #I started by generating the map and chosing the features I wanted to see on it: 
@@ -44,4 +45,6 @@ This is the documentation document related to the MAP_COORDINATES project by stu
 """ 
         plt.show() #Shows the image
 """
+=======
+>>>>>>> 8b5fd6d5107ff2edea3b7f93dea6407ecad06e97
 
