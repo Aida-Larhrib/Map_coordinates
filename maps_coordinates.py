@@ -25,7 +25,7 @@ r = 0.15
 ax.add_patch(mpatches.Circle(xy=[longitude, latitude], radius=r, color='red', alpha=0.3, transform=ccrs.PlateCarree(), zorder=30))
 
 #This defines the bounding box around the coordinates
-zoom_radius = 2  # degrees to zoom in
+zoom_radius = 5  # degrees to zoom in
 ax.set_extent([longitude - zoom_radius, longitude + zoom_radius, latitude - zoom_radius, latitude + zoom_radius], crs=ccrs.PlateCarree())
 
 plt.show()
