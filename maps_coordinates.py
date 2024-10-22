@@ -17,23 +17,25 @@ def map_generation(ax=None):
     ax.add_feature(cfeature.NaturalEarthFeature('cultural', 'admin_1_states_provinces_lines', '50m', edgecolor='gray', facecolor='none'))
     return ax
 
-plt.savefig( )
-plt.savefig('coastlines.pdf')
-plt.savefig('coastlines.png')
+# plt.savefig( )
+# plt.savefig('coastlines.pdf')
+# plt.savefig('coastlines.png')
 
 #Defining a function for coordinates and radius of the circle that is to be mapped
-def plot_circle(ax, longitude, latitude, r):
-    longitude = -7.603869
-    latitude = 33.589886
+def plot_circle(ax, longitude= -7.603869, latitude= 33.589886):
     r = 0.15
     circle = ax.add_patch(mpatches.Circle(xy=[longitude, latitude], radius=r, color='red', alpha=0.3, transform=ccrs.PlateCarree(), zorder=30))
     return circle
 
 #This defines the bounding box around the coordinates
 
-def zoom(ax, degree, longitude, latitude):
+def zoom(ax, degree, longitude= -7.603869, latitude= 33.589886):
     zoom_radius = 5
     frame = ax.set_extent([longitude - degree, longitude + zoom_radius, latitude - zoom_radius, latitude + zoom_radius], crs=ccrs.PlateCarree())
     return frame
+
+ax = map_generation()
+circle = plot_circle(ax=ax)
+frame = zoom(ax=ax,degree=5)
 
 plt.show()
