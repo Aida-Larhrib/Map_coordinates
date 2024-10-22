@@ -5,6 +5,7 @@ import matplotlib.patches as mpatches
 import cartopy.feature as cfeature
 
 #draw out the map and chose the variable that I want to be in there:
+
 def map_generation(ax=None):
     if ax is None : 
         ax = plt.axes(projection=ccrs.PlateCarree())
@@ -16,6 +17,7 @@ def map_generation(ax=None):
     ax.add_feature(cfeature.NaturalEarthFeature('cultural', 'admin_1_states_provinces_lines', '50m', edgecolor='gray', facecolor='none'))
     return ax
 
+plt.savefig( )
 plt.savefig('coastlines.pdf')
 plt.savefig('coastlines.png')
 
