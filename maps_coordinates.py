@@ -1,4 +1,5 @@
-#map_coordinates project by Aïda Larhrib, student 5854261.
+#map_coordinates project by Aïda Larhrib, student 5854261
+import pytest
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 from cartopy.geodesic import Geodesic
@@ -69,3 +70,15 @@ circle = plot_circle(ax=ax)
 frame = zoom(ax=ax,degree=5)
 
 plt.show()
+
+#testing the plot_circle with assert function:
+def test_plot_circle_valid_coordinates():
+    plot_circle(ax, longitude=0, latitude=0)
+    assert isinstance(circle, plt.Circle)
+    assert circle.center == (0, 0)
+    plt.close()
+
+def test_plot_circle_invalid_coordinates():
+    plot_circle(ax, longitude=200, latitude=100)
+    assert isinstance(circle, plt.Circle)
+    assert circle.center == (200, 100)
