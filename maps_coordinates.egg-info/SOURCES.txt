@@ -1,0 +1,6 @@
+pyproject.toml
+src/maps_coordinates.py
+src/maps_coordinates.egg-info/PKG-INFO
+src/maps_coordinates.egg-info/SOURCES.txt
+src/maps_coordinates.egg-info/dependency_links.txt
+src/maps_coordinates.egg-info/top_level.txt
