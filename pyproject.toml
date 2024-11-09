@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maps_coordinates"
+version = "0.1.0"
+description = "A package that uses given coordinates (longitue and latitude) to place a cirlce on a world map right at those coordinates"
+authors = [ 
+    {name = "Aïda Larhrib", email = "aida.larhrib@gmail.com"},
+]
+dependencies = [ "cartopy", "matplotlib"]
